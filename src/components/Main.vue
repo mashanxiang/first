@@ -1,6 +1,6 @@
 <template>
 <div>
-
+  <h1>首页</h1>
   <button @click="login" >进入登录界面</button>
   <class-slect></class-slect>
 </div>

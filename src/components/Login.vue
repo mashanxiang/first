@@ -1,6 +1,7 @@
 <template>
   <el-row type="flex" justify="center">
     <el-form  ref="loginForm" :model="user" v-bind:rules="rules" label-width="80px" >
+      <h1 style="text-align: center">登录界面</h1>
       <el-form-item label="用户名" prop="name"  >
         <el-input v-model="user.name" autofocus="autofocus"></el-input >
       </el-form-item>
