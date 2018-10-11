@@ -1,6 +1,6 @@
 <template>
   <el-row type="flex" justify="center">
-    <el-form  ref="loginForm" :model="user" v-bind:rules="rules" label-width="80px" >
+    <el-form  ref="Form" :model="user" v-bind:rules="rules" label-width="80px" >
       <h1 style="text-align: center">登录界面</h1>
       <el-form-item label="用户名" prop="name"  >
         <el-input v-model="user.name" autofocus="autofocus"></el-input >
@@ -20,15 +20,15 @@
   export default {
     methods: {
       login () {
-        this.$refs.loginForm.validate((valid) => {
-          if (valid) {
+        this.$refs.Form.validate((yz) => {
+          if (yz) {
             if (this.user.name === 'admin' && this.user.pass === '123') {
               this.$notify({
                 type: 'success',
-                message: '欢迎你,' + this.user.name + '!',
+                message: '欢迎你,  ' + this.user.name + '！！！',
                 duration: 3000
               })
-              this.$router.replace('/ku')
+              this.$router.replace('/navi')
             } else {
               this.$message({
                 type: 'error',
@@ -49,7 +49,12 @@
       },
         submit(ev){
         if (ev.keyCode==13 && this.user.name === 'admin' && this.user.pass === '123'){
-          this.$router.replace('/ku')
+          this.$router.replace('/navi')
+          this.$notify({
+            type: 'success',
+            message: '欢迎你,  ' + this.user.name + '！！！',
+            duration: 3000
+          })
         }else{
           this.$message({
             type: 'error',
@@ -65,10 +70,10 @@
         user: {},
         rules: {
           name: [
-            {required: true, message: '用户名不能为空',triger: 'blur'}
+            {required: true, message: '用户名不能为空'}
           ],
           pass: [
-            {required: true, message: '密码不能为空',triger: 'blur'}
+            {required: true, message: '密码不能为空'}
           ]
         }
       }
